@@ -113,7 +113,7 @@ class CustomerDatatable extends EntityDatatable
     public function buildOptions() : Collection
     {
 
-      $visible = auth()->user()->getColumnVisibility(Customer::class);
+      //$visible = auth()->user()->getColumnVisibility(Customer::class);
       $company = auth()->user()->company();
 
         return collect([
@@ -137,70 +137,70 @@ class CustomerDatatable extends EntityDatatable
                   'name' => 'name',
                   'title' => ctrans('texts.name'),
                   'sortField' => 'name',
-                  'visible' => $visible->name,
+                  'visible' => true,
                   'dataClass' => 'center aligned'
                 ],
                 [
                   'name' => 'contact',
                   'title' => ctrans('texts.contact'),
                   'sortField' => 'contact',
-                  'visible' => $visible->contact,
+                  'visible' => true,
                   'dataClass' => 'center aligned'
                 ],
                 [
                   'name' => 'email',
                   'title' => ctrans('texts.email'),
                   'sortField' => 'email',
-                  'visible' => $visible->email,
+                  'visible' => false,
                   'dataClass' => 'center aligned'
                 ],
                 [
                   'name' => 'customer_created_at',
                   'title' => ctrans('texts.date_created'),
                   'sortField' => 'customer_created_at',
-                  'visible' => $visible->customer_created_at,
+                  'visible' => false,
                   'dataClass' => 'center aligned'
                 ],
                 [
                   'name' => 'last_login',
                   'title' => ctrans('texts.last_login'),
                   'sortField' => 'last_login',
-                  'visible' => $visible->last_login,
+                  'visible' => false,
                   'dataClass' => 'center aligned'
                 ],
                 [
                   'name' => 'balance',
                   'title' => ctrans('texts.balance'),
                   'sortField' => 'balance',
-                  'visible' => $visible->balance,
+                  'visible' => false,
                   'dataClass' => 'center aligned'             
                 ],
                 [
                   'name' => 'custom_value1',
                   'title' => $company->custom_customer_label1 ?: '',
                   'sortField' => 'custom_value1',
-                  'visible' => $visible->custom_value1,
+                  'visible' => false,
                   'dataClass' => 'center aligned'             
                 ],
                 [
                   'name' => 'custom_value2',
                   'title' => $company->custom_customer_label2 ?: '',
                   'sortField' => 'custom_value2',
-                  'visible' => $visible->custom_value2,
+                  'visible' => false,
                   'dataClass' => 'center aligned'             
                 ],
                                 [
                   'name' => 'custom_value3',
                   'title' => $company->custom_customer_label3 ?: '',
                   'sortField' => 'custom_value3',
-                  'visible' => $visible->custom_value3,
+                  'visible' => false,
                   'dataClass' => 'center aligned'             
                 ],
                                 [
                   'name' => 'custom_value4',
                   'title' => $company->custom_customer_label4 ?: '',
                   'sortField' => 'custom_value4',
-                  'visible' => $visible->custom_value4,
+                  'visible' => false,
                   'dataClass' => 'center aligned'             
                 ],
                 [

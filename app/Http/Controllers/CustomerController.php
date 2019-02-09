@@ -71,7 +71,7 @@ class CustomerController extends Controller
             'listaction' => $this->customerDatatable->listActions()
         ];
 
-        return view('customer.vue_list', $data);
+        return view('customer.list', $data);
 
     }
 
