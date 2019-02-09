@@ -5,7 +5,7 @@ namespace Modules\Notes\Http\ViewComposers;
 use App\Utils\Traits\UserSessionAttributes;
 use Illuminate\View\View;
 
-class ClientEditComposer
+class CustomerEditComposer
 {
     use UserSessionAttributes;
 
@@ -19,10 +19,10 @@ class ClientEditComposer
     {
         $data = $view->getData();
         
-        $view->with('notes::edit', $this->clientEditData);
+        $view->with('notes::edit', $this->customerEditData);
     }
 
-    private function clientEditData()
+    private function customerEditData()
     {
 
     }

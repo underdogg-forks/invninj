@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Models\Client;
-use App\Policies\ClientPolicy;
+use App\Models\Customer;
+use App\Policies\CustomerPolicy;
 use Auth;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -16,7 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        Client::class => ClientPolicy::class,
+        Customer::class => CustomerPolicy::class,
     ];
 
     /**

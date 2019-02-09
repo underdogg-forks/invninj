@@ -5,23 +5,23 @@ Breadcrumbs::for('dashboard', function ($trail) {
     $trail->push(trans('texts.dashboard'), route('dashboard.index'));
 });
 
-// Dashboard > Client
-Breadcrumbs::for('clients', function ($trail) {
+// Dashboard > Customer
+Breadcrumbs::for('customers', function ($trail) {
     $trail->parent('dashboard');
-    $trail->push(trans('texts.clients'), route('clients.index'));
+    $trail->push(trans('texts.customers'), route('customers.index'));
 });
 
-Breadcrumbs::for('clients.show', function($trail, $client) {
-    $trail->parent('clients');
-    $trail->push($client->name, route('clients.show', $client));
+Breadcrumbs::for('customers.show', function($trail, $customer) {
+    $trail->parent('customers');
+    $trail->push($customer->name, route('customers.show', $customer));
 });
 
-Breadcrumbs::for('clients.edit', function($trail, $client) {
-    $trail->parent('clients');
-    $trail->push($client->name, route('clients.edit', $client));
+Breadcrumbs::for('customers.edit', function($trail, $customer) {
+    $trail->parent('customers');
+    $trail->push($customer->name, route('customers.edit', $customer));
 });
 
-Breadcrumbs::for('clients.create', function($trail) {
-    $trail->parent('clients');
+Breadcrumbs::for('customers.create', function($trail) {
+    $trail->parent('customers');
 });
 

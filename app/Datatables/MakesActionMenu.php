@@ -21,17 +21,17 @@ trait MakesActionMenu
 	{
 
     return collect([
-		['action' => 'view_client_client_id', 'permission' => 'view_client', 'route' => 'clients.show', 'key' => 'client_id', 'name' => ctrans('texts.view')],
-        ['action' => 'edit_client_client_id', 'permission' => 'edit_client', 'route' => 'clients.edit', 'key' => 'client_id', 'name' => ctrans('texts.edit')],
-        ['action' => 'create_task_client_id', 'permission' => 'create_task', 'route' => 'tasks.create', 'key' => 'client_id', 'name' => ctrans('texts.new_task')],
-        ['action' => 'create_invoice_client_id', 'permission' => 'create_invoice', 'route' => 'invoices.create', 'key' => 'client_id', 'name' => ctrans('texts.new_invoice')],
-        ['action' => 'create_quote_client_id', 'permission' => 'create_quote', 'route' => 'quotes.create', 'key' => 'client_id', 'name' => ctrans('texts.new_quote')],
-        ['action' => 'create_recurring_invoice_client_id', 'permission' => 'create_recurring_invoice', 'route' => 'recurring_invoices.create', 'key' => 'client_id', 'name' => ctrans('texts.new_recurring_invoice')],
-        ['action' => 'enter_payment_client_id', 'permission' => 'create_payment', 'route' => 'payments.create', 'key' => 'client_id', 'name' => ctrans('texts.enter_payment')], 
-        ['action' => 'enter_credit_client_id', 'permission' => 'create_credit', 'route' => 'credits.create', 'key' => 'client_id', 'name' => ctrans('texts.enter_credit')],
-        ['action' => 'enter_expense_client_id', 'permission' => 'create_expense', 'route' => 'expenses.create', 'key' => 'client_id', 'name' => ctrans('texts.enter_expense')],
+		['action' => 'view_customer_customer_id', 'permission' => 'view_customer', 'route' => 'customers.show', 'key' => 'customer_id', 'name' => ctrans('texts.view')],
+        ['action' => 'edit_customer_customer_id', 'permission' => 'edit_customer', 'route' => 'customers.edit', 'key' => 'customer_id', 'name' => ctrans('texts.edit')],
+        ['action' => 'create_task_customer_id', 'permission' => 'create_task', 'route' => 'tasks.create', 'key' => 'customer_id', 'name' => ctrans('texts.new_task')],
+        ['action' => 'create_invoice_customer_id', 'permission' => 'create_invoice', 'route' => 'invoices.create', 'key' => 'customer_id', 'name' => ctrans('texts.new_invoice')],
+        ['action' => 'create_quote_customer_id', 'permission' => 'create_quote', 'route' => 'quotes.create', 'key' => 'customer_id', 'name' => ctrans('texts.new_quote')],
+        ['action' => 'create_recurring_invoice_customer_id', 'permission' => 'create_recurring_invoice', 'route' => 'recurring_invoices.create', 'key' => 'customer_id', 'name' => ctrans('texts.new_recurring_invoice')],
+        ['action' => 'enter_payment_customer_id', 'permission' => 'create_payment', 'route' => 'payments.create', 'key' => 'customer_id', 'name' => ctrans('texts.enter_payment')], 
+        ['action' => 'enter_credit_customer_id', 'permission' => 'create_credit', 'route' => 'credits.create', 'key' => 'customer_id', 'name' => ctrans('texts.enter_credit')],
+        ['action' => 'enter_expense_customer_id', 'permission' => 'create_expense', 'route' => 'expenses.create', 'key' => 'customer_id', 'name' => ctrans('texts.enter_expense')],
 
-        ['action' => 'view_statement_client_id', 'permission' => 'edit_client', 'route' => 'client_statement.show', 'key' => 'client_id', 'name' => ctrans('texts.view_statement')],
+        ['action' => 'view_statement_customer_id', 'permission' => 'edit_customer', 'route' => 'customer_statement.show', 'key' => 'customer_id', 'name' => ctrans('texts.view_statement')],
     ]);
 
 

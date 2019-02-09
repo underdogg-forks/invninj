@@ -2,8 +2,8 @@
 
 use App\DataMapper\DefaultSettings;
 use App\Models\Account;
-use App\Models\Client;
-use App\Models\ClientContact;
+use App\Models\Customer;
+use App\Models\CustomerContact;
 use App\Models\User;
 use App\Models\UserAccount;
 use Illuminate\Database\Seeder;
@@ -41,11 +41,11 @@ class UsersTableSeeder extends Seeder
 
         $userPermissions = collect([
                                     'view_invoice',
-                                    'view_client',
-                                    'edit_client',
+                                    'view_customer',
+                                    'edit_customer',
                                     'edit_invoice',
                                     'create_invoice',
-                                    'create_client'
+                                    'create_customer'
                                 ]);
 
         $userSettings = DefaultSettings::userSettings();
@@ -59,35 +59,35 @@ class UsersTableSeeder extends Seeder
             'is_locked' => 0,
         ]);
 
-        $client = factory(\App\Models\Client::class)->create([
+        $customer = factory(\App\Models\Customer::class)->create([
             'user_id' => $user->id,
             'company_id' => $company->id
         ]);
 
 
-        ClientContact::create([
+        CustomerContact::create([
             'first_name' => $faker->firstName,
             'last_name' => $faker->lastName,
-            'email' => config('ninja.testvars.clientname'),
+            'email' => config('ninja.testvars.customername'),
             'company_id' => $company->id,
             'password' => Hash::make(config('ninja.testvars.password')),
             'email_verified_at' => now(),
-            'client_id' =>$client->id,
+            'customer_id' =>$customer->id,
         ]);
 
 
-        factory(\App\Models\Client::class, 500)->create(['user_id' => $user->id, 'company_id' => $company->id])->each(function ($c) use ($user, $company){
+        factory(\App\Models\Customer::class, 500)->create(['user_id' => $user->id, 'company_id' => $company->id])->each(function ($c) use ($user, $company){
 
-            factory(\App\Models\ClientContact::class,1)->create([
+            factory(\App\Models\CustomerContact::class,1)->create([
                 'user_id' => $user->id,
-                'client_id' => $c->id,
+                'customer_id' => $c->id,
                 'company_id' => $company->id,
                 'is_primary' => 1
             ]);
 
-            factory(\App\Models\ClientContact::class,15)->create([
+            factory(\App\Models\CustomerContact::class,15)->create([
                 'user_id' => $user->id,
-                'client_id' => $c->id,
+                'customer_id' => $c->id,
                 'company_id' => $company->id
             ]);
 

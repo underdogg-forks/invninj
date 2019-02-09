@@ -1,12 +1,12 @@
 
 
         <div class="container-fluid">
-                @if($client)
-                    <span>{{ $client->name }}  </span>
+                @if($customer)
+                    <span>{{ $customer->name }}  </span>
                 @endif
 
                 <ul>
-                @foreach($client->notes()->get() as $note)
+                @foreach($customer->notes()->get() as $note)
                    <li> {{ $note->description }} </li>
                 @endforeach
                 </ul>

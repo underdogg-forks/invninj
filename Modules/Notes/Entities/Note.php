@@ -16,9 +16,9 @@ class Note extends Model
 
     protected $table = 'notes';
 
-    public function client()
+    public function customer()
     {
-        return $this->hasOne(App\Models\Client::class);
+        return $this->hasOne(App\Models\Customer::class);
     }
 
     public function notes()

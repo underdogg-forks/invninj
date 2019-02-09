@@ -10,8 +10,8 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/clients">
-                    <i class="nav-icon icon-user"></i> @lang('texts.clients')</a>
+                <a class="nav-link" href="/customers">
+                    <i class="nav-icon icon-user"></i> @lang('texts.customers')</a>
             </li>
 
             <li class="nav-item">

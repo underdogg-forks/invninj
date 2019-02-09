@@ -2,7 +2,7 @@
 
 namespace App\DataMapper;
 
-use App\Models\Client;
+use App\Models\Customer;
 
 /**
  * Class DefaultSettings
@@ -22,14 +22,14 @@ class DefaultSettings
 	public static function userSettings() : \stdClass
 	{
 		return (object)[
-	        class_basename(Client::class) => self::clientSettings(),
+	        class_basename(Customer::class) => self::customerSettings(),
 	    ];
 	}
 
 	/**
 	 * @return \stdClass
      */
-	private static function clientSettings() : \stdClass
+	private static function customerSettings() : \stdClass
 	{
 		
 		return (object)[
@@ -39,7 +39,7 @@ class DefaultSettings
 	    			'name' => true,
 	    			'contact' => true,
 	    			'email' => true,
-	    			'client_created_at' => true,
+	    			'customer_created_at' => true,
 	    			'last_login' => true,
 	    			'balance' => true,
 	    			'custom_value1' => false,

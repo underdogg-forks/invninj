@@ -55,11 +55,11 @@ Route::group(['middleware' => ['auth:user', 'db']], function () {
 
   Route::post('recurring_invoices/bulk', 'RecurringInvoiceController@bulk')->name('recurring_invoices.bulk');
 
-  Route::resource('clients', 'ClientController'); // name = (clients. index / create / show / update / destroy / edit
+  Route::resource('customers', 'CustomerController'); // name = (customers. index / create / show / update / destroy / edit
 
-  Route::post('clients/bulk', 'ClientController@bulk')->name('clients.bulk');
+  Route::post('customers/bulk', 'CustomerController@bulk')->name('customers.bulk');
 
-  Route::resource('client_statement', 'ClientStatementController@statement'); // name = (client_statement. index / create / show / update / destroy / edit
+  Route::resource('customer_statement', 'CustomerStatementController@statement'); // name = (customer_statement. index / create / show / update / destroy / edit
 
   Route::resource('tasks', 'TaskController'); // name = (tasks. index / create / show / update / destroy / edit
   
@@ -77,7 +77,7 @@ Route::group(['middleware' => ['auth:user', 'db']], function () {
   
   Route::post('expenses/bulk', 'ExpenseController@bulk')->name('expenses.bulk');
   
-  Route::resource('user', 'UserProfileController'); // name = (clients. index / create / show / update / destroy / edit
+  Route::resource('user', 'UserProfileController'); // name = (customers. index / create / show / update / destroy / edit
   
   Route::get('settings', 'SettingsController@index')->name('user.settings');
 

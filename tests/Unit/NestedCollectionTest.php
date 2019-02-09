@@ -17,7 +17,7 @@ class NestedCollectionTest extends TestCase
 	    parent::setUp();
 
 	    $this->map = (object)[
-	        'client' => (object)[
+	        'customer' => (object)[
 	        	'datatable' => (object)[
 	        		'per_page' => 20,
 	        		'column_visibility' => (object)[
@@ -25,10 +25,10 @@ class NestedCollectionTest extends TestCase
 	        			'name' => true,
 	        			'contact' => true,
 	        			'email' => true,
-	        			'client_created_at' => true,
+	        			'customer_created_at' => true,
 	        			'last_login' => true,
 	        			'balance' => true,
-	        			'__component:client-actions' => true,
+	        			'__component:customer-actions' => true,
 	        		]
 	        	]
 	        ]
@@ -39,17 +39,17 @@ class NestedCollectionTest extends TestCase
 
     public function testPerPageAttribute()
     {
-		$this->assertEquals($this->map->client->datatable->per_page, 20);
+		$this->assertEquals($this->map->customer->datatable->per_page, 20);
     }
 
     public function testNameAttributeVisibility()
     {
-    	$this->assertEquals($this->map->client->datatable->column_visibility->name, true);
+    	$this->assertEquals($this->map->customer->datatable->column_visibility->name, true);
     }
 
     public function testStringAsEntityProperty()
     {
-    	$entity = 'client';
+    	$entity = 'customer';
 
     	$this->assertEquals($this->map->{$entity}->datatable->column_visibility->name, true);
     }

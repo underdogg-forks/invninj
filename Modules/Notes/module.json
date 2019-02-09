@@ -15,5 +15,5 @@
     "settings": false,
     "sidebar": false,
     "requires": [],
-    "views": ["client","invoice"]
+    "views": ["customer","invoice"]
 }

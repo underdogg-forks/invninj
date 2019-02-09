@@ -2,7 +2,7 @@
 
 namespace Modules\Notes\Tests;
 
-use App\Models\Client;
+use App\Models\Customer;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Nwidart\Modules\Facades\Module;
 use Tests\TestCase;
@@ -42,11 +42,11 @@ class CheckMenuModulesTest extends TestCase
         $this->assertTrue(is_array($module->get('views')));
     }
 
-    public function testViewsVariableExistsAndContainsClients()
+    public function testViewsVariableExistsAndContainsCustomers()
     {
         $module = Module::find('Notes');
         $array = $module->get('views');
-        $this->assertTrue(in_array('client', $array)); 
+        $this->assertTrue(in_array('customer', $array)); 
     }
 
     public function testViewsVariableExistsAndDoesNotContainRandomObject()
@@ -58,7 +58,7 @@ class CheckMenuModulesTest extends TestCase
 
     public function testResolvingTabMenuCorrectly()
     {
-        $entity = Client::class;
+        $entity = Customer::class;
         $tabs = [];
 
     	foreach (Module::getCached() as $module)
@@ -72,8 +72,8 @@ class CheckMenuModulesTest extends TestCase
 		}
         $this->assertFalse($module['sidebar']);
         $this->assertEquals(1,$module['active']);
-        $this->assertEquals('client', strtolower(class_basename(Client::class)));
-        $this->assertTrue( in_array(strtolower(class_basename(Client::class)), $module['views']) );
+        $this->assertEquals('customer', strtolower(class_basename(Customer::class)));
+        $this->assertTrue( in_array(strtolower(class_basename(Customer::class)), $module['views']) );
         $this->assertEquals(1, count($tabs));
     }
   

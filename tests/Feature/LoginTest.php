@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Account;
-use App\Models\Client;
+use App\Models\Customer;
 use App\Models\User;
 use App\Utils\Traits\UserSessionAttributes;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

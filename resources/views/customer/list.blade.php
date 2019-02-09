@@ -14,23 +14,21 @@
         {{ Breadcrumbs::render('customers') }}
 
         <div class="container-fluid">
-            
-            <div class="row">
+             <div class="row">
                 <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg pull-right">{{ trans('notes::texts.new_note') }}</button>
+                    <button class="btn btn-primary btn-lg pull-right">{{ trans('texts.new_customer') }}</button>
                 </div>
             </div>
 
-            <div id="ui-view">
-                <div class="animated fadeIn" style="padding-top:20px;">
-                    <div class="row col-md-12 card">
+            <div id="ui-view" style="padding-top:20px;">
+                <div class="animated fadeIn">
+                    <div class="col-md-12 card">
 
                         {!! $html->table() !!}
 
                     </div>
                 </div>
             </div>
-
         </div>
     </main>
 @endsection

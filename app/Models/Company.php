@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Account;
 use App\Models\AccountGateway;
-use App\Models\Client;
+use App\Models\Customer;
 use App\Models\Country;
 use App\Models\Currency;
 use App\Models\Expense;
@@ -59,9 +59,9 @@ class Company extends BaseModel
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function clients()
+    public function customers()
     {
-        return $this->hasMany(Client::class);
+        return $this->hasMany(Customer::class);
     }
 
     /**

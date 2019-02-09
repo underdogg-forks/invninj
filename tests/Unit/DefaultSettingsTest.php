@@ -23,14 +23,14 @@ class DefaultTest extends TestCase
 	{
 		$user_settings = DefaultSettings::userSettings();
 		
-		$this->assertEquals($user_settings->Client->datatable->per_page, 25);
+		$this->assertEquals($user_settings->Customer->datatable->per_page, 25);
 	}
 
 	public function testIsObject()
 	{
 		$user_settings = DefaultSettings::userSettings();
 
-        $this->assertInternalType('object',$user_settings->Client->datatable->column_visibility);
+        $this->assertInternalType('object',$user_settings->Customer->datatable->column_visibility);
 
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 
 	return [
-	    'client' => [
+	    'customer' => [
 	        'notes' => ["hasMany", ['Modules\Notes\Entities\Note']]
 	    ],
 	];

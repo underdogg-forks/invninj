@@ -157,15 +157,15 @@ class CreateUsersTable extends Migration
             $table->string('custom_label4')->nullable();
             $table->string('custom_value4')->nullable();
 
-            $table->string('custom_client_label1')->nullable();
-            $table->string('custom_client_label2')->nullable();
-            $table->string('custom_client_label3')->nullable();
-            $table->string('custom_client_label4')->nullable();
+            $table->string('custom_customer_label1')->nullable();
+            $table->string('custom_customer_label2')->nullable();
+            $table->string('custom_customer_label3')->nullable();
+            $table->string('custom_customer_label4')->nullable();
 
-            $table->string('custom_client_contact_label1')->nullable();
-            $table->string('custom_client_contact_label2')->nullable();
-            $table->string('custom_client_contact_label3')->nullable();
-            $table->string('custom_client_contact_label4')->nullable();
+            $table->string('custom_customer_contact_label1')->nullable();
+            $table->string('custom_customer_contact_label2')->nullable();
+            $table->string('custom_customer_contact_label3')->nullable();
+            $table->string('custom_customer_contact_label4')->nullable();
 
             $table->string('custom_invoice_label1')->nullable();
             $table->string('custom_invoice_label2')->nullable();
@@ -263,7 +263,7 @@ class CreateUsersTable extends Migration
 
         });
 
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
 
             $table->increments('id');
             $table->unsignedInteger('company_id')->index();
@@ -317,10 +317,10 @@ class CreateUsersTable extends Migration
 
         });
 
-        Schema::create('client_contacts', function (Blueprint $table) {
+        Schema::create('customer_contacts', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('company_id')->index();
-            $table->unsignedInteger('client_id')->index();
+            $table->unsignedInteger('customer_id')->index();
             $table->unsignedInteger('user_id')->index();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
@@ -349,7 +349,7 @@ class CreateUsersTable extends Migration
             $table->softDeletes();
 
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             //$table->unique(['company_id', 'email']);
         });
 
@@ -377,7 +377,7 @@ class CreateUsersTable extends Migration
 
         Schema::create('invoices', function ($t) {
             $t->increments('id');
-            $t->unsignedInteger('client_id')->index();
+            $t->unsignedInteger('customer_id')->index();
             $t->unsignedInteger('user_id');
             $t->unsignedInteger('company_id')->index();
             $t->unsignedInteger('invoice_status_id');
@@ -409,14 +409,14 @@ class CreateUsersTable extends Migration
             $t->decimal('balance', 13, 2);
             $t->decimal('partial', 13, 2)->nullable();
 
-            $t->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $t->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $t->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $t->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $t->timestamps();
             $t->softDeletes();
 
-            $t->unique(['company_id', 'client_id']);
+            $t->unique(['company_id', 'customer_id']);
         });
 
         Schema::create('invitations', function ($t) {
@@ -425,7 +425,7 @@ class CreateUsersTable extends Migration
             $t->unsignedInteger('inviteable_id');
             $t->string('inviteable_type');
             $t->unsignedInteger('user_id');
-            $t->unsignedInteger('client_contact_id');
+            $t->unsignedInteger('customer_contact_id');
             $t->unsignedInteger('invoice_id')->index();
             $t->string('invitation_key',100)->index()->unique();
             $t->timestamps();
@@ -436,7 +436,7 @@ class CreateUsersTable extends Migration
             $t->timestamp('viewed_date')->nullable();
 
             $t->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $t->foreign('client_contact_id')->references('id')->on('client_contacts')->onDelete('cascade');
+            $t->foreign('customer_contact_id')->references('id')->on('customer_contacts')->onDelete('cascade');
             $t->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
             $t->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
@@ -488,8 +488,8 @@ class CreateUsersTable extends Migration
             $t->increments('id');
             $t->unsignedInteger('invoice_id')->nullable()->index(); //todo handle payments where there is no invoice OR we are paying MULTIPLE invoices
             $t->unsignedInteger('company_id')->index();
-            $t->unsignedInteger('client_id')->index();
-            $t->unsignedInteger('client_contact_id')->nullable();
+            $t->unsignedInteger('customer_id')->index();
+            $t->unsignedInteger('customer_contact_id')->nullable();
             $t->unsignedInteger('invitation_id')->nullable();
             $t->unsignedInteger('user_id')->nullable();
             $t->unsignedInteger('account_gateway_id')->nullable();
@@ -505,8 +505,8 @@ class CreateUsersTable extends Migration
 
             $t->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
             $t->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
-            $t->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            $t->foreign('client_contact_id')->references('id')->on('client_contacts')->onDelete('cascade');
+            $t->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
+            $t->foreign('customer_contact_id')->references('id')->on('customer_contacts')->onDelete('cascade');
             $t->foreign('account_gateway_id')->references('id')->on('account_gateways')->onDelete('cascade');
             $t->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             ;
@@ -542,7 +542,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('company_id')->index();
-            $table->unsignedInteger('client_id')->nullable();
+            $table->unsignedInteger('customer_id')->nullable();
             $table->unsignedInteger('invoice_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -558,7 +558,7 @@ class CreateUsersTable extends Migration
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('invoice_id')->references('id')->on('invoices')->onDelete('cascade');
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
 
         });
 

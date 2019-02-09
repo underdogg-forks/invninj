@@ -17,18 +17,18 @@ class CompareCollectionTest extends TestCase
     parent::setUp();
 
     $this->map = collect([
-        ['action' => 'view_client_client_id', 'permission' => 'view_client', 'route' => 'clients.show', 'key' => 'client_id', 'name' => trans('texts.view')],
-        ['action' => 'edit_client_client_id', 'permission' => 'edit_client', 'route' => 'clients.edit', 'key' => 'client_id', 'name' => trans('texts.edit')],
-        ['action' => 'create_task_client_id', 'permission' => 'create_task', 'route' => 'task.create', 'key' => 'client_id', 'name' => trans('texts.new_task')],
-        ['action' => 'create_invoice_client_id', 'permission' => 'create_invoice', 'route' => 'invoice.create', 'key' => 'client_id', 'name' => trans('texts.new_invoice')],
-        ['action' => 'enter_payment_client_id', 'permission' => 'create_payment', 'route' => 'payment.create', 'key' => 'client_id', 'name' => trans('texts.enter_payment')], 
-        ['action' => 'enter_credit_client_id', 'permission' => 'create_credit', 'route' => 'credit.create', 'key' => 'client_id', 'name' => trans('texts.enter_credit')],
-        ['action' => 'enter_expense_client_id', 'permission' => 'create_expense', 'route' => 'expense.create', 'key' => 'client_id', 'name' => trans('texts.enter_expense')]
+        ['action' => 'view_customer_customer_id', 'permission' => 'view_customer', 'route' => 'customers.show', 'key' => 'customer_id', 'name' => trans('texts.view')],
+        ['action' => 'edit_customer_customer_id', 'permission' => 'edit_customer', 'route' => 'customers.edit', 'key' => 'customer_id', 'name' => trans('texts.edit')],
+        ['action' => 'create_task_customer_id', 'permission' => 'create_task', 'route' => 'task.create', 'key' => 'customer_id', 'name' => trans('texts.new_task')],
+        ['action' => 'create_invoice_customer_id', 'permission' => 'create_invoice', 'route' => 'invoice.create', 'key' => 'customer_id', 'name' => trans('texts.new_invoice')],
+        ['action' => 'enter_payment_customer_id', 'permission' => 'create_payment', 'route' => 'payment.create', 'key' => 'customer_id', 'name' => trans('texts.enter_payment')], 
+        ['action' => 'enter_credit_customer_id', 'permission' => 'create_credit', 'route' => 'credit.create', 'key' => 'customer_id', 'name' => trans('texts.enter_credit')],
+        ['action' => 'enter_expense_customer_id', 'permission' => 'create_expense', 'route' => 'expense.create', 'key' => 'customer_id', 'name' => trans('texts.enter_expense')]
     ]);
 
-        $this->view_permission = ['view_client'];
+        $this->view_permission = ['view_customer'];
 
-        $this->edit_permission = ['view_client', 'edit_client'];
+        $this->edit_permission = ['view_customer', 'edit_customer'];
 
         $this->is_admin = true;
 
@@ -64,16 +64,16 @@ class CompareCollectionTest extends TestCase
 
     }
 
-    public function testActionViewClientFilter()
+    public function testActionViewCustomerFilter()
     {
         $actions = [
-            'view_client_client_id'
+            'view_customer_customer_id'
         ];
 
         $this->assertEquals(1, $this->map->whereIn('action', $actions)->count());
     }
 
-    public function testNoActionClientFilter()
+    public function testNoActionCustomerFilter()
     {
         $actions = [
             ''
@@ -85,7 +85,7 @@ class CompareCollectionTest extends TestCase
     public function testActionsAndPermissionsFilter()
     {
         $actions = [
-            'view_client_client_id'
+            'view_customer_customer_id'
 
         ];
 
@@ -98,7 +98,7 @@ class CompareCollectionTest extends TestCase
     public function testActionAndPermissionsFilterFailure()
     {
         $actions = [
-            'edit_client_client_id'
+            'edit_customer_customer_id'
 
         ];
 
@@ -111,7 +111,7 @@ class CompareCollectionTest extends TestCase
     public function testEditActionAndPermissionsFilter()
     {
         $actions = [
-            'edit_client_client_id'
+            'edit_customer_customer_id'
 
         ];
 

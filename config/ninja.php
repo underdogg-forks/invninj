@@ -45,7 +45,7 @@ return [
 
     'testvars' => [
         'username' => 'user@example.com',
-        'clientname' => 'client@example.com',
+        'customername' => 'customer@example.com',
         'password' => 'password',
     ],
 

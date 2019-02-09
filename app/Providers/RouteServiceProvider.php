@@ -28,10 +28,10 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot();
 
-        Route::bind('client', function ($value) {
-            $client = \App\Models\Client::withTrashed()->where('id', $this->decodePrimaryKey($value))->first() ?? abort(404);
-            //$client->load('contacts', 'primary_contact');
-            return $client;
+        Route::bind('customer', function ($value) {
+            $customer = \App\Models\Customer::withTrashed()->where('id', $this->decodePrimaryKey($value))->first() ?? abort(404);
+            //$customer->load('contacts', 'primary_contact');
+            return $customer;
         });
 
         Route::bind('invoice', function ($value) {
@@ -54,8 +54,8 @@ class RouteServiceProvider extends ServiceProvider
             return \App\Models\Account::withTrashed()->where('id', $this->decodePrimaryKey($value))->first() ?? abort(404);
         });
 
-        Route::bind('client_contact', function ($value) {
-            return \App\Models\ClientContact::withTrashed()->where('id', $this->decodePrimaryKey($value))->first() ?? abort(404);
+        Route::bind('customer_contact', function ($value) {
+            return \App\Models\CustomerContact::withTrashed()->where('id', $this->decodePrimaryKey($value))->first() ?? abort(404);
         });
 
         Route::bind('expense', function ($value) {
