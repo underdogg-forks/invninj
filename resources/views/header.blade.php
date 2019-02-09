@@ -10,7 +10,6 @@
     <button class="sidebar-minimizer brand-minimizer" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
-
     <ul class="nav navbar-nav ml-auto">
         <li class="nav-item dropdown d-md-down-none" style="padding-left:20px; padding-right: 20px;">
             <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
