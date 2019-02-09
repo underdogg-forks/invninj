@@ -14,19 +14,19 @@ class DatabaseSeeder extends Seeder
     {
         $this->command->info('Running DatabaseSeeder');
 
-        if (Timezone::count()) {
-            $this->command->info('Skipping: already run');
-            return;
-        }
+        // if (Timezone::count()) {
+        //     $this->command->info('Skipping: already run');
+        //     return;
+        // }
 
-        Eloquent::unguard();
+        // Eloquent::unguard();
 
-        $this->call('ConstantsSeeder');
-        $this->call('PaymentLibrariesSeeder');
-        $this->call('BanksSeeder');
-        $this->call('CurrenciesSeeder');
-        $this->call('LanguageSeeder');
-        $this->call('CountriesSeeder');
-
+        // $this->call('ConstantsSeeder');
+        // $this->call('PaymentLibrariesSeeder');
+        // $this->call('BanksSeeder');
+        // $this->call('CurrenciesSeeder');
+        // $this->call('LanguageSeeder');
+        // $this->call('CountriesSeeder');
+        $this->call('UsersTableSeeder');
     }
 }
